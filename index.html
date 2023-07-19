@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>clock</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>JS + CSS Clock</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="clock">
+<div class="bg">
+    <div class="clock">
+        <div class="clock-face">
             <div class="circle" id="sc" style="--clr:#04fc43"><i></i></div>
             <div class="circle circle2" id="mn" style="--clr:#fee800"><i></i></div>
             <div class="circle circle3" id="hr" style="--clr:#e71313"><i></i></div>
@@ -29,64 +28,20 @@
             <span style="--i:12;"><b>12</b></span>
             
         </div>
-        <!-- digital clock   -->
-          <div id="time">
-              <div id="hour" style="--clr:#e71313">00</div>
-              <div id="minutes" style="--clr:#fee800">00</div>
-              <div id="seconds" style="--clr:#04fc43">00</div>
-              <div id="ampm">AM</div>
-          </div>
-    </div>
+        <!-- digital clock-face   -->
+        <div id="time">
+          <div id="hour" style="--clr:#e71313">00</div>
+          <div id="minutes" style="--clr:#fee800">00</div>
+          <div id="seconds" style="--clr:#04fc43">00</div>
+          <div id="ampm">AM</div>
+      </div>
+</div>
 
+<script src="script.js"></script>
 
-
-    <script>
-        let hr = document.querySelector('#hr');
-        let mn = document.querySelector('#mn');
-        let sc = document.querySelector('#sc');
-        setInterval(()=>{
-
-        let day = new Date();
-        let hh = day.getHours() * 30;
-        let mm = day.getMinutes() * 6;
-        let ss = day.getSeconds() * 6;
-
-        hr.style.transform = `rotateZ(${hh+(mm/12)}deg)`;
-        mn.style.transform = `rotateZ(${mm}deg)`;
-        sc.style.transform = `rotateZ(${ss}deg)`;
-
-        //DIGITAL CLOCK
-        let hours = document.getElementById('hour');
-        let minutes = document.getElementById('minutes');
-        let seconds= document.getElementById('seconds');
-        let ampm = document.getElementById('ampm');
-
-        let h = new Date().getHours();
-        let m = new Date().getMinutes();
-        let s = new Date().getSeconds();
-
-        let am = h >= 12 ? "PM" : "AM";
-
-        // am pm
-        if(h > 12){
-            h = h - 12;
-        }
-
-
-        // add zeor before single digit
-
-        h = (h < 10) ? "0" + h : h
-        m = (m < 10) ? "0" + m : m
-        s = (s < 10) ? "0" + s : s
-
-        hours.innerHTML = h;
-        minutes.innerHTML = m;
-        seconds.innerHTML = s;
-        ampm.innerHTML = am;
-        
-        })
-
-
-    </script>
 </body>
-</html>
+</html> 
+
+
+
+
